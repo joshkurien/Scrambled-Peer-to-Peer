@@ -12,6 +12,8 @@ public class Sender {
 	{
 		String message;
 		Scanner stdin = new Scanner(System.in);
+		
+		System.out.println("Enter Message:");
 		message = stdin.nextLine();
 		
 		cli.msend(message, IP, port);
@@ -22,12 +24,13 @@ public class Sender {
 		String sendIP;
 		int port;
 		Scanner stdin = new Scanner(System.in);
+		Scanner stdin2 = new Scanner(System.in);
 		
 		System.out.println("Enter port to be used");
 		port = stdin.nextInt();
 		
 		System.out.println("Enter  Destination IP");
-		sendIP = stdin.nextLine();
+		sendIP = stdin2.nextLine();
 		
 		messageSend(sendIP,port);
 	}
