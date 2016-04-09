@@ -58,7 +58,7 @@ public class ecdhe {
     System.out.println(new String(hash.digest(bKeyAgree.generateSecret())));
   }
   
-  public static PublicKey keygen() throws Exception
+  public static KeyPair keygen() throws Exception
   {
 	  Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
@@ -81,12 +81,13 @@ public class ecdhe {
 	    Pair = keyGen.generateKeyPair();
 
 	    KeyAgree.init(Pair.getPrivate());
-	    return Pair.getPublic();
+	    return Pair;
   }
 
-  public static byte[] shared_secret(PublicKey rem_key) throws Exception
+  public static byte[] shared_secret(PublicKey rem_key,KeyPair local) throws Exception
   {
 	  byte[] s_key;
+	  Pair = local;
 	  KeyAgree.doPhase(rem_key, true);
 	  
 	  MessageDigest hash = MessageDigest.getInstance("SHA1", "BC");
