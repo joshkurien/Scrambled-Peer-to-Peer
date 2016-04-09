@@ -84,7 +84,7 @@ public class ecdhe {
 	    return Pair;
   }
 
-  public static byte[] shared_secret(PublicKey rem_key,KeyPair local) throws Exception
+  public static String shared_secret(PublicKey rem_key,KeyPair local) throws Exception
   {
 	  byte[] s_key;
 	  Pair = local;
@@ -94,9 +94,9 @@ public class ecdhe {
 	  
 	  s_key = hash.digest(KeyAgree.generateSecret());
 	  	  
-	  System.out.println(new String(s_key));   //for printing the shared secret
+//	  System.out.println(new String(s_key));   //for printing the shared secret
 	  
-	  return s_key;
+	  return new String(s_key);
   }
 
 }

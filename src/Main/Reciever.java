@@ -15,7 +15,7 @@ public class Reciever {
 	public static void main(String args[]) throws Exception
 	{
 		int port;
-		byte shared_key[];
+		String shared_key;
 		
 	/*	Scanner stdin = new Scanner(System.in);
 		
