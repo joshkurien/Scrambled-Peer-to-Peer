@@ -1,6 +1,5 @@
 package quanatisation;
 
-import java.util.Random;
 
 public class random_permutation {
 	
@@ -16,14 +15,9 @@ public class random_permutation {
 	static char m_array[],A[];
 	static int P[]	;
 	
-	private static void init(int perm_size,String message,String key)
+	private static void init(int perm_size,String key)
 	{
-		Random r = new Random();
-		int i,j,s = key.length();
-		
-		for(i = message.length();i<perm_size;i++)
-			message+= (char)(r.nextInt(26) + 'a');
-		m_array = message.toCharArray(); 
+		int i,j,s = key.length();		
 		
 		A = new char[perm_size];
 		P = new int[perm_size];
@@ -117,30 +111,25 @@ public class random_permutation {
 				i++;
 			}
 		}
-	for(i = 0;i<p_size;i++)	
-		System.out.print(P[i]);
-	System.out.println(" ");
-		for(i = 0;i<count;i++)	
-			System.out.print(values[i]);
 		
 	}
 	
-	public static void kbrp(String key, String message,int no_channel)
+	public static int[] kbrp(String key,int pSize,int no_channel)
 	{
-		int pSize=calc_perm_size(message.length(),no_channel);
 		
-		init(pSize,message,key);
+		init(pSize,key);
 		eliminate(pSize);
 		fill(pSize);
+		return P;
 		
 	}
 	
-	public static void main(String Args[])
+/*	public static void main(String Args[])
 	{		
 		String message="abcdefg",key="computer";
 		int pSize=calc_perm_size(message.length(),2);
-		init(pSize,message,key);
+		init(pSize,key);
 		eliminate(pSize);
 		fill(pSize);
-	}
+	}*/
 }
