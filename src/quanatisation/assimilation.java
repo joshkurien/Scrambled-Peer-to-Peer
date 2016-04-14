@@ -29,7 +29,7 @@ public class assimilation {
 		return (new String(assembled));
 	}
 	
-	public static void main(String Args[])
+/*	public static void main(String Args[])
 	{
 		int chno=4,len;
 		String key="k3cew",message="This is a very very very long message that I'm trying to make for debugging purposes only";
@@ -38,5 +38,5 @@ public class assimilation {
 		len = scrambled[0].length;
 		
 		System.out.println(assemble(key,scrambled,len,chno));
-	}
+	}*/
 }
