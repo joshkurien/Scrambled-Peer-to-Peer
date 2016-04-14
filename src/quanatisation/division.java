@@ -48,7 +48,7 @@ public class division {
 	public static void main(String Args[])
 	{
 		int ch=4;
-		char output[][] = scramble("key","aaaaaaaaaaaaaaaaaaaaa",ch);
+		char output[][] = scramble("qwert","Amazing woohoo",ch);
 		for(int i=0;i<ch;i++)
 			System.out.println(output[i]);
 	}
