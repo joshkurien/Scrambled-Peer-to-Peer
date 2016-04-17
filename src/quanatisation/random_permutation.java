@@ -91,7 +91,7 @@ public class random_permutation {
 				values[count++] = i;
 		}
 
-		i=0;
+		//i=0;
 		j=p_size-1;
 		int k=0;
 		while(i<count)
@@ -102,8 +102,10 @@ public class random_permutation {
 			{
 				P[j] = values[i];
 				i++;
+				if(i==count)
+					break;
 			}
-			while( P[k] != 0 && k<=p_size )
+			while( P[k] != 0 && k<=p_size)
 				++k;
 			if(k<=p_size)
 			{
