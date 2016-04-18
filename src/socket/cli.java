@@ -17,7 +17,8 @@ public class cli {
 
 		PrintStream p = new PrintStream(s.getOutputStream());
 		p.println(message);
-		temp = netsc.next();
-		System.out.println(temp);
+		temp = netsc.nextLine();
+		if(!temp.contentEquals("Recieved row"))
+			System.out.println("Some error");
 	}
 }

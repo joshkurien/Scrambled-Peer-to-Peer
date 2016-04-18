@@ -1,21 +1,18 @@
 package Main;
 
-import java.io.IOException;
-import java.io.PrintStream;
+
 import java.security.KeyPair;
 import java.security.PublicKey;
-import java.util.Scanner;
 
 import Crypt.ecdhe;
-import socket.ser;
+import socket.Scramble;
 
 public class Reciever {
 	static private KeyPair keys;
 	
 	public static void main(String args[]) throws Exception
 	{
-		int port;
-		String shared_key;
+		String shared_key,message;
 		
 	/*	Scanner stdin = new Scanner(System.in);
 		
@@ -27,8 +24,8 @@ public class Reciever {
 		PublicKey remote = socket.keyreciev.k_recieve(keys.getPublic());
 		
 		shared_key = ecdhe.shared_secret(remote,keys);
-		System.out.println(shared_key);
-		
-	//	System.out.println(ser.recieved(port));
+	//	System.out.println(shared_key);
+		message = 	Scramble.recieved(shared_key);
+		System.out.println(message);
 	}	
 }

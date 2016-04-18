@@ -15,7 +15,7 @@ public class keysend {
 	{
 		String temp;
 		temp = key_string.savePublicKey(key);
-		Socket s = new Socket(finalIP, 1734);
+		Socket s = new Socket(finalIP, 7013);
 		Scanner netsc = new Scanner(s.getInputStream());
 		
 

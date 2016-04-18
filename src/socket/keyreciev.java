@@ -14,7 +14,7 @@ public class keyreciev {
 	public static PublicKey k_recieve(PublicKey key) throws IOException, GeneralSecurityException
 	{
 		String temp;
-		ServerSocket s1 = new ServerSocket(1734);
+		ServerSocket s1 = new ServerSocket(7013);
 		Socket ss = s1.accept();
 		Scanner sc =new Scanner(ss.getInputStream());
 		

@@ -14,11 +14,11 @@ public class ser {
 		ServerSocket s1 = new ServerSocket(portNo);
 		Socket ss = s1.accept();
 		Scanner sc =new Scanner(ss.getInputStream());
-		temp = sc.next();
+		temp = sc.nextLine();
 		
 		
 		PrintStream p = new PrintStream(ss.getOutputStream());
-		p.println("Recieved Message");
+		p.println("Recieved row");
 		
 		return(temp);
 	}

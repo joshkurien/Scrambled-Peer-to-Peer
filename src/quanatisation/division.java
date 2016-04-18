@@ -44,11 +44,11 @@ public class division {
 		
 		return output;		
 	}
-	/*
-	public static void main(String Args[])
+	
+/*	public static void main(String Args[])
 	{
-		int ch=4;
-		char output[][] = scramble("qwert","Amazing woohoo",ch);
+		int ch=5;
+		char output[][] = scramble("+�*��4��'�#����`�.�$","trying another one now!",ch);
 		for(int i=0;i<ch;i++)
 			System.out.println(output[i]);
 	}*/
