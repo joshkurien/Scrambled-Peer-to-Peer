@@ -47,4 +47,15 @@ public class Sender {
 		String shared_key = ecdhe.shared_secret(remote,keys);
 		messageSend(sendIP,ports,shared_key);
 	}
+	
+	public static void work(int ports, String sendIP) throws Exception{
+		PublicKey remote;
+		
+		keys = ecdhe.keygen();
+		
+		remote = keysend.k_send(keys.getPublic(),sendIP);
+		
+		String shared_key = ecdhe.shared_secret(remote,keys);
+		messageSend(sendIP,ports,shared_key);
+	}
 }
