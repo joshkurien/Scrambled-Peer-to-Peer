@@ -28,4 +28,18 @@ public class Reciever {
 		message = 	Scramble.recieved(shared_key);
 		System.out.println(message);
 	}	
+	
+	public static String work() throws Exception
+	{
+		String shared_key,message;
+			
+		keys = ecdhe.keygen();
+			
+		PublicKey remote = socket.keyreciev.k_recieve(keys.getPublic());
+			
+		shared_key = ecdhe.shared_secret(remote,keys);
+		message = 	Scramble.recieved(shared_key);
+			
+		return(message);
+	}
 }
