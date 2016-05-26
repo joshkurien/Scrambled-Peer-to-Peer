@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 import java.awt.Font;
 
@@ -20,7 +21,7 @@ public class SenderWindow {
 
 	private JFrame frame;
 	private JTextField recieverIP;
-	private JTextField message;
+	private JTextArea message;
 	private JLabel lblPortNumber;
 	private JComboBox<String> ports;
 
@@ -73,7 +74,9 @@ public class SenderWindow {
 		lblMessageToBe.setBounds(76, 83, 188, 31);
 		frame.getContentPane().add(lblMessageToBe);
 		
-		message = new JTextField();
+		message = new JTextArea();
+		message.setLineWrap(true);
+		message.setWrapStyleWord(true);
 		message.setBounds(34, 111, 230, 147);
 		frame.getContentPane().add(message);
 		message.setColumns(10);

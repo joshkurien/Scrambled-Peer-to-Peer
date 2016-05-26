@@ -4,6 +4,7 @@ public class assimilation {
 	public static String assemble(String key,char scrambled[][],int len,int no_channel)
 	{
 		char assembled[];
+		String result;
 		int i,msg_size;
 		
 		msg_size = len*no_channel;
@@ -26,7 +27,9 @@ public class assimilation {
 		i+=no_channel*2;
 		assembled[msg_size-i] = '\0';
 		
-		return (new String(assembled));
+		result = new String(assembled);
+		
+		return(result.substring(0, msg_size-i));
 	}
 	
 /*	public static void main(String Args[])

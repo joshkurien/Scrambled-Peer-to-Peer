@@ -66,6 +66,40 @@ public class Scramble {
 		s1.close();
 		return(ports);
 	}
+	
+	private static int[] thrdpdecideRec() throws IOException
+	{
+		int ports[] = new int[2];
+		Random r = new Random();
+		ServerSocket s1 = new ServerSocket(51324);
+		try{
+			while(true)
+			{
+				Socket ss = s1.accept();
+				
+				try{
+					Scanner sc =new Scanner(ss.getInputStream());
+					ports[1] = sc.nextInt();
+					ports[0] = r.nextInt(64510 - ports[1]);
+					ports[0] += 1025;
+					
+					PrintStream p = new PrintStream(ss.getOutputStream());
+					p.println(ports[0]);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					ss.close();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			s1.close();
+		}
+		
+		return(ports);
+	}
+	
 	public static String recieved(String key) throws IOException
 	{
 		String temp = null,result;
@@ -77,7 +111,7 @@ public class Scramble {
 		for(i=0;i<ports[1];i++)
 		{
 			temp = ser.recieved(ports[0]);
-		//	System.out.println(temp);
+			System.out.println(temp.length());
 			scrambled[i] = temp.toCharArray();
 		//	System.out.println(scrambled[i]);
 			ports[0]++;

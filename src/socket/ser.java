@@ -20,6 +20,9 @@ public class ser {
 		PrintStream p = new PrintStream(ss.getOutputStream());
 		p.println("Recieved row");
 		
+		
+		ss.close();
+		s1.close();
 		return(temp);
 	}
 
