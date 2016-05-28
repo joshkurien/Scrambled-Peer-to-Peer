@@ -11,7 +11,7 @@ public class assimilation {
 		
 		int temp[]={0,0},map[] = random_permutation.kbrp(key,msg_size,no_channel);
 		
-		for(i=0;i<msg_size;i++)
+		for(i=0;temp[0]<no_channel;i++)
 		{			
 			assembled[map[i]-1] = scrambled[temp[0]][temp[1]];
 			temp[1]++;

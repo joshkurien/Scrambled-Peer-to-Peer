@@ -14,7 +14,7 @@ public class Sender {
 	
 	static private KeyPair keys;
 	
-	static void messageSend(String IP, int port,String key) throws UnknownHostException, IOException
+	static void messageSend(String IP, int port,String key) throws UnknownHostException, IOException, InterruptedException
 	{
 		String message;
 		Scanner stdin = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class Sender {
 		messageSend(sendIP,ports,shared_key);
 	}
 	
-	public static void work(int ports, String sendIP) throws Exception{
+	public static void work(int ports, String sendIP, String message) throws Exception{
 		PublicKey remote;
 		
 		keys = ecdhe.keygen();
@@ -56,6 +56,7 @@ public class Sender {
 		remote = keysend.k_send(keys.getPublic(),sendIP);
 		
 		String shared_key = ecdhe.shared_secret(remote,keys);
-		messageSend(sendIP,ports,shared_key);
+		
+		Scramble.msend(message, sendIP, ports, shared_key);
 	}
 }

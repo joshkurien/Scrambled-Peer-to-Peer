@@ -11,11 +11,19 @@ import java.util.Scanner;
 import Crypt.key_string;
 
 public class keysend {
-	public static PublicKey k_send(PublicKey key, String finalIP) throws UnknownHostException, IOException, GeneralSecurityException
+	public static PublicKey k_send(PublicKey key, String finalIP) throws UnknownHostException, IOException, GeneralSecurityException, InterruptedException
 	{
 		String temp;
+		Socket s;
 		temp = key_string.savePublicKey(key);
-		Socket s = new Socket(finalIP, 7013);
+		while(true) {
+			try{
+				s = new Socket(finalIP, 7013);
+				if(s != null) break;
+			}
+			catch(IOException e) { Thread.sleep(1000); }
+		}
+		
 		Scanner netsc = new Scanner(s.getInputStream());
 		
 

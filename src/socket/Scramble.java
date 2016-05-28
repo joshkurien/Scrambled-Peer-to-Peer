@@ -12,10 +12,17 @@ import quanatisation.assimilation;
 import quanatisation.division;;
 
 public class Scramble {
-	private static int pdecideSend(String IP,int no) throws UnknownHostException, IOException
+	private static int pdecideSend(String IP,int no) throws UnknownHostException, IOException, InterruptedException
 	{
 		int pNo;
-		Socket s = new Socket(IP, 51324);
+		Socket s ;
+		while(true) {
+			try{
+				s = new Socket(IP, 51324);
+				if(s != null) break;
+			}
+			catch(IOException e) { Thread.sleep(1000); }
+		}
 		Scanner netsc = new Scanner(s.getInputStream());
 		
 
@@ -23,10 +30,11 @@ public class Scramble {
 		p.println(no);
 		pNo = netsc.nextInt();
 		
+		s.close();
 		return pNo;		
 	}
 	
-	public static void msend(String message, String finalIP, int no_ports,String key) throws UnknownHostException, IOException
+	public static void msend(String message, String finalIP, int no_ports,String key) throws UnknownHostException, IOException, InterruptedException
 	{
 		char divided[][];
 		int pNo = pdecideSend(finalIP,no_ports);
@@ -54,6 +62,8 @@ public class Scramble {
 		PrintStream p = new PrintStream(ss.getOutputStream());
 		p.println(ports[0]);
 		
+		ss.close();
+		s1.close();
 		return(ports);
 	}
 	public static String recieved(String key) throws IOException
