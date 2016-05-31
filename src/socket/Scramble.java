@@ -113,7 +113,7 @@ public class Scramble {
 			temp = ser.recieved(ports[0]);
 			System.out.println(temp.length());
 			scrambled[i] = temp.toCharArray();
-		//	System.out.println(scrambled[i]);
+			System.out.println(scrambled[i]);
 			ports[0]++;
 		}
 		result = assimilation.assemble(key, scrambled, temp.length(), ports[1]);
